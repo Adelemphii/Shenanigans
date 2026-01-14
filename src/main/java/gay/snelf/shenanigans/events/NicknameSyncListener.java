@@ -13,10 +13,10 @@ import java.awt.*;
 public class NicknameSyncListener {
 
     public static void onPlayerReady(PlayerReadyEvent event) {
-        PlayerRef playerRef = event.getPlayer().getPlayerRef(); // This is deprecated but I'm too tired to care :3 also shenanigans, aka not serious plugin
-        Ref<EntityStore> ref = playerRef.getReference();
-        if(ref == null) return;
+        Ref<EntityStore> ref = event.getPlayerRef();
         Store<EntityStore> store = ref.getStore();
+        PlayerRef playerRef = store.getComponent(ref, PlayerRef.getComponentType());
+        if(playerRef == null || !playerRef.isValid()) return;
 
         Nickname nickname = store.getComponent(ref, Nickname.getComponentType());
         if(nickname == null) {
