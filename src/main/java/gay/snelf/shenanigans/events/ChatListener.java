@@ -1,17 +1,14 @@
-package gay.snelf.plugin.events;
+package gay.snelf.shenanigans.events;
 
-import com.hypixel.hytale.math.vector.Transform;
 import com.hypixel.hytale.math.vector.Vector3d;
-import com.hypixel.hytale.server.core.HytaleServer;
 import com.hypixel.hytale.server.core.Message;
-import com.hypixel.hytale.server.core.asset.util.ColorParseUtil;
 import com.hypixel.hytale.server.core.event.events.player.PlayerChatEvent;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.Universe;
 import com.hypixel.hytale.server.core.universe.world.World;
-import gay.snelf.plugin.Shenanigans;
-import gay.snelf.plugin.objects.Channel;
-import gay.snelf.plugin.objects.PlayerConfig;
+import gay.snelf.shenanigans.Shenanigans;
+import gay.snelf.shenanigans.objects.Channel;
+import gay.snelf.shenanigans.objects.PlayerConfig;
 
 import java.awt.*;
 import java.util.List;

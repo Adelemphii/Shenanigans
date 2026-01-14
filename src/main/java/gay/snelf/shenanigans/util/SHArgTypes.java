@@ -1,18 +1,8 @@
-package gay.snelf.plugin.util;
+package gay.snelf.shenanigans.util;
 
-import com.hypixel.hytale.server.core.command.system.CommandSender;
-import com.hypixel.hytale.server.core.command.system.ParseResult;
 import com.hypixel.hytale.server.core.command.system.arguments.types.ArgTypes;
-import com.hypixel.hytale.server.core.command.system.arguments.types.EnumArgumentType;
 import com.hypixel.hytale.server.core.command.system.arguments.types.SingleArgumentType;
-import com.hypixel.hytale.server.core.command.system.suggestion.SuggestionResult;
-import gay.snelf.plugin.objects.Channel;
-import gay.snelf.plugin.objects.PlayerConfig;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
-import java.util.Arrays;
-import java.util.stream.Collectors;
+import gay.snelf.shenanigans.objects.Channel;
 
 public class SHArgTypes {
 

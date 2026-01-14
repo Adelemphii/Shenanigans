@@ -1,14 +1,14 @@
-package gay.snelf.plugin;
+package gay.snelf.shenanigans;
 
 import com.hypixel.hytale.logger.HytaleLogger;
 import com.hypixel.hytale.server.core.event.events.player.PlayerChatEvent;
 import com.hypixel.hytale.server.core.plugin.JavaPlugin;
 import com.hypixel.hytale.server.core.plugin.JavaPluginInit;
-import gay.snelf.plugin.commands.channel.ChannelCommand;
-import gay.snelf.plugin.commands.nickname.NicknameCommand;
-import gay.snelf.plugin.events.ChatListener;
-import gay.snelf.plugin.objects.Channel;
-import gay.snelf.plugin.objects.PlayerConfig;
+import gay.snelf.shenanigans.commands.channel.ChannelCommand;
+import gay.snelf.shenanigans.commands.nickname.NicknameCommand;
+import gay.snelf.shenanigans.events.ChatListener;
+import gay.snelf.shenanigans.objects.Channel;
+import gay.snelf.shenanigans.objects.PlayerConfig;
 
 import javax.annotation.Nonnull;
 import java.util.*;
@@ -24,7 +24,7 @@ public class Shenanigans extends JavaPlugin {
 
     private static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
-    private Map<UUID, PlayerConfig> playerConfigs = new ConcurrentHashMap<>();
+    private final Map<UUID, PlayerConfig> playerConfigs = new ConcurrentHashMap<>();
 
     public Shenanigans(@Nonnull JavaPluginInit init) {
         super(init);
@@ -42,20 +42,12 @@ public class Shenanigans extends JavaPlugin {
         this.getEventRegistry().registerGlobal(PlayerChatEvent.class, ChatListener::onPlayerChat);
     }
 
-    public Map<UUID, PlayerConfig> getPlayerConfigs() {
-        return playerConfigs;
-    }
-
     public PlayerConfig getPlayerConfig(UUID uuid) {
         return playerConfigs.getOrDefault(uuid, new PlayerConfig(uuid, Channel.GLOBAL));
     }
 
     public void addPlayerConfig(PlayerConfig config) {
         playerConfigs.put(config.getPlayerUuid(), config);
-    }
-
-    public void removePlayerConfig(UUID uuid) {
-        playerConfigs.remove(uuid);
     }
 
     public static Shenanigans getINSTANCE() {

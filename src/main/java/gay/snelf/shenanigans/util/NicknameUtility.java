@@ -1,4 +1,4 @@
-package gay.snelf.plugin.util;
+package gay.snelf.shenanigans.util;
 
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;

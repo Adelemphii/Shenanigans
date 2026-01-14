@@ -1,4 +1,4 @@
-package gay.snelf.plugin.commands.channel;
+package gay.snelf.shenanigans.commands.channel;
 
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
@@ -10,10 +10,10 @@ import com.hypixel.hytale.server.core.command.system.basecommands.AbstractPlayer
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import gay.snelf.plugin.Shenanigans;
-import gay.snelf.plugin.objects.Channel;
-import gay.snelf.plugin.objects.PlayerConfig;
-import gay.snelf.plugin.util.SHArgTypes;
+import gay.snelf.shenanigans.Shenanigans;
+import gay.snelf.shenanigans.objects.Channel;
+import gay.snelf.shenanigans.objects.PlayerConfig;
+import gay.snelf.shenanigans.util.SHArgTypes;
 
 import javax.annotation.Nonnull;
 import java.awt.*;

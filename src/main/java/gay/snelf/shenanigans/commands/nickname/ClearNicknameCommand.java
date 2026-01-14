@@ -1,4 +1,4 @@
-package gay.snelf.plugin.commands.nickname;
+package gay.snelf.shenanigans.commands.nickname;
 
 import com.hypixel.hytale.component.Ref;
 import com.hypixel.hytale.component.Store;
@@ -9,9 +9,9 @@ import com.hypixel.hytale.server.core.permissions.HytalePermissions;
 import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import gay.snelf.plugin.Shenanigans;
-import gay.snelf.plugin.objects.PlayerConfig;
-import gay.snelf.plugin.util.NicknameUtility;
+import gay.snelf.shenanigans.Shenanigans;
+import gay.snelf.shenanigans.objects.PlayerConfig;
+import gay.snelf.shenanigans.util.NicknameUtility;
 
 import javax.annotation.Nonnull;
 import java.awt.*;

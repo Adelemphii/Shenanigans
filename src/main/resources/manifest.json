@@ -17,6 +17,6 @@
         
     },
     "DisabledByDefault": false,
-    "Main": "gay.snelf.plugin.Shenanigans",
+    "Main": "gay.snelf.shenanigans.Shenanigans",
     "IncludesAssetPack": true
 }

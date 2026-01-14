@@ -1,9 +1,6 @@
-package gay.snelf.plugin.objects;
+package gay.snelf.shenanigans.objects;
 
 import java.awt.*;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public enum Channel {
     GLOBAL(-1, "OOC", Color.GRAY),
