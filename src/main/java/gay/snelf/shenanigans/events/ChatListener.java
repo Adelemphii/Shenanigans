@@ -55,7 +55,7 @@ public class ChatListener {
                     Vector3d senderPos = sender.getTransform().getPosition();
                     Vector3d playerPos = playerRef.getTransform().getPosition();
 
-                    double distance = senderPos.distanceTo(playerPos);
+                    double distance = senderPos.distanceSquaredTo(playerPos);
                     return distance <= range;
                 }).toList();
     }
