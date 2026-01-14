@@ -13,7 +13,7 @@ import gay.snelf.shenanigans.commands.nickname.NicknameCommand;
 import gay.snelf.shenanigans.events.ChatListener;
 import gay.snelf.shenanigans.events.NicknameSyncListener;
 import gay.snelf.shenanigans.objects.Channel;
-import gay.snelf.shenanigans.objects.Nickname;
+import gay.snelf.shenanigans.component.Nickname;
 import gay.snelf.shenanigans.objects.NicknameSnapshot;
 import gay.snelf.shenanigans.objects.PlayerConfig;
 

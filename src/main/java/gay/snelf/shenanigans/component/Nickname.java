@@ -1,4 +1,4 @@
-package gay.snelf.shenanigans.objects;
+package gay.snelf.shenanigans.component;
 
 import com.hypixel.hytale.codec.Codec;
 import com.hypixel.hytale.codec.KeyedCodec;

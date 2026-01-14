@@ -5,7 +5,7 @@ import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
 import com.hypixel.hytale.server.core.modules.entity.EntityModule;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
-import gay.snelf.shenanigans.objects.Nickname;
+import gay.snelf.shenanigans.component.Nickname;
 
 public class NicknameUtility {
 

@@ -10,7 +10,7 @@ import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import gay.snelf.shenanigans.Shenanigans;
-import gay.snelf.shenanigans.objects.Nickname;
+import gay.snelf.shenanigans.component.Nickname;
 import gay.snelf.shenanigans.util.NicknameUtility;
 
 import javax.annotation.Nonnull;
