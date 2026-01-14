@@ -1,0 +1,22 @@
+{
+    "Group": "Adelemphii",
+    "Name": "Shenanigans",
+    "Version": "0.0.2",
+    "Description": "A plugin full of shenanigans!",
+    "Authors": [
+        {
+            "Name": "Adelemphii!"
+        }
+    ],
+    "Website": "snelf.gay",
+    "ServerVersion": "*",
+    "Dependencies": {
+        
+    },
+    "OptionalDependencies": {
+        
+    },
+    "DisabledByDefault": false,
+    "Main": "gay.snelf.plugin.Shenanigans",
+    "IncludesAssetPack": true
+}
