@@ -8,6 +8,7 @@ import com.hypixel.hytale.server.core.universe.Universe;
 import com.hypixel.hytale.server.core.universe.world.World;
 import gay.snelf.shenanigans.Shenanigans;
 import gay.snelf.shenanigans.objects.Channel;
+import gay.snelf.shenanigans.objects.NicknameSnapshot;
 import gay.snelf.shenanigans.objects.PlayerConfig;
 
 import java.awt.*;
@@ -21,12 +22,14 @@ public class ChatListener {
         PlayerConfig config = Shenanigans.getINSTANCE().getPlayerConfig(sender.getUuid());
         Channel channel = config.getChannel() != null ? config.getChannel() : Channel.GLOBAL;
 
+        NicknameSnapshot nickname = Shenanigans.getINSTANCE().getNicknameSnapshot(sender.getUuid(), sender.getUsername());
+
         String channelName = channel != null ? channel.getShortName() : Channel.GLOBAL.name();
         Color channelColor = channel != null ? channel.getColor() : Channel.GLOBAL.getColor();
         int range = channel != null ? channel.getRange() : Channel.GLOBAL.getRange();
 
-        int nickColor = config.getNicknameColor() != null ? config.getNicknameColor() : Color.WHITE.getRGB();
-        String name = config.getNickname() != null ? config.getNickname() : sender.getUsername();
+        int nickColor = nickname.color();
+        String name = nickname.text().isEmpty() ? sender.getUsername() : nickname.text();
 
         event.setFormatter((_, message) -> Message.join(
                 Message.raw("[%s] ".replace("%s", channelName)).color(channelColor),

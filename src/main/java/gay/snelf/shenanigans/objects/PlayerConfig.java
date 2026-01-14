@@ -7,9 +7,6 @@ public class PlayerConfig {
     private Channel channel;
     private final UUID playerUuid;
 
-    private String nickname;
-    private Integer nicknameColor;
-
     public PlayerConfig(UUID uuid, Channel channel) {
         this.playerUuid = uuid;
         this.channel = channel;
@@ -25,22 +22,6 @@ public class PlayerConfig {
 
     public UUID getPlayerUuid() {
         return playerUuid;
-    }
-
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    public Integer getNicknameColor() {
-        return nicknameColor;
-    }
-
-    public void setNicknameColor(Integer nicknameColor) {
-        this.nicknameColor = nicknameColor;
     }
 
 }

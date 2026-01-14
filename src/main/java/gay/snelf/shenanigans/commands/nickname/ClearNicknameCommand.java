@@ -10,28 +10,24 @@ import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import gay.snelf.shenanigans.Shenanigans;
-import gay.snelf.shenanigans.objects.PlayerConfig;
+import gay.snelf.shenanigans.objects.Nickname;
 import gay.snelf.shenanigans.util.NicknameUtility;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
 
 public class ClearNicknameCommand extends AbstractPlayerCommand {
-    private final Shenanigans plugin;
 
-    public ClearNicknameCommand(Shenanigans plugin) {
+    public ClearNicknameCommand() {
         super("clear", "Clears your nickname.");
         this.requirePermission(HytalePermissions.fromCommand("nickname.self"));
 
-        this.plugin = plugin;
     }
 
     @Override
     protected void execute(@Nonnull CommandContext commandContext, @Nonnull Store<EntityStore> store, @Nonnull Ref<EntityStore> ref, @Nonnull PlayerRef playerRef, @Nonnull World world) {
-        PlayerConfig config = plugin.getPlayerConfig(playerRef.getUuid());
-        config.setNickname(null);
-        config.setNicknameColor(null);
-        plugin.addPlayerConfig(config);
+        Nickname nickname = NicknameUtility.updateNicknameComponent(ref, store, playerRef.getUsername(), Color.WHITE.getRGB());
+        Shenanigans.getINSTANCE().syncNicknameSnapshot(playerRef.getUuid(), nickname);
 
         playerRef.sendMessage(Message.raw("Your nickname has been cleared.").color(Color.GREEN));
 

@@ -12,7 +12,7 @@ import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import gay.snelf.shenanigans.Shenanigans;
-import gay.snelf.shenanigans.objects.PlayerConfig;
+import gay.snelf.shenanigans.objects.Nickname;
 import gay.snelf.shenanigans.util.NicknameUtility;
 
 import javax.annotation.Nonnull;
@@ -27,7 +27,7 @@ public class NicknameCommand extends AbstractPlayerCommand {
     public NicknameCommand(Shenanigans plugin) {
         super("nick", "Sets your nickname.");
         this.requirePermission(HytalePermissions.fromCommand("nickname.self"));
-        this.addSubCommand(new ClearNicknameCommand(plugin));
+        this.addSubCommand(new ClearNicknameCommand());
         this.addSubCommand(new SetNicknameColorCommand(plugin));
 
         this.plugin = plugin;
@@ -35,14 +35,11 @@ public class NicknameCommand extends AbstractPlayerCommand {
 
     @Override
     protected void execute(@Nonnull CommandContext commandContext, @Nonnull Store<EntityStore> store, @Nonnull Ref<EntityStore> ref, @Nonnull PlayerRef playerRef, @Nonnull World world) {
-        PlayerConfig config = plugin.getPlayerConfig(playerRef.getUuid());
         String nickname = nicknameArg.get(commandContext);
 
-        config.setNickname(nickname);
-        plugin.addPlayerConfig(config);
+        Nickname nicknameComponent = NicknameUtility.updateNicknameComponent(ref, store, nickname, -1);
+        plugin.syncNicknameSnapshot(playerRef.getUuid(), nicknameComponent);
 
         playerRef.sendMessage(Message.raw("Your nickname has been set to " + nickname + ".").color(Color.GREEN));
-
-        NicknameUtility.updateNameplate(ref, store, nickname);
     }
 }

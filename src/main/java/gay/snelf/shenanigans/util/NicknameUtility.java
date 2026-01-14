@@ -5,6 +5,7 @@ import com.hypixel.hytale.component.Store;
 import com.hypixel.hytale.server.core.entity.nameplate.Nameplate;
 import com.hypixel.hytale.server.core.modules.entity.EntityModule;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
+import gay.snelf.shenanigans.objects.Nickname;
 
 public class NicknameUtility {
 
@@ -17,24 +18,18 @@ public class NicknameUtility {
         store.replaceComponent(ref, EntityModule.get().getNameplateComponentType(), nameplate);
     }
 
-//    public static void updateNickname(Ref<EntityStore> ref, Store<EntityStore> store, @Nullable String text, @Nullable Integer color) {
-//        Nickname nickname = store.getComponent(ref, Nickname.getType());
-//        if(nickname == null) {
-//            nickname = new Nickname();
-//        }
-//
-//        if(text != null) nickname.setNickname(text);
-//        if(color != null) nickname.setColor(color);
-//
-//        store.replaceComponent(ref, Nickname.getType(), nickname);
-//    }
+    public static Nickname updateNicknameComponent(Ref<EntityStore> ref, Store<EntityStore> store, String text, int color) {
+        Nickname nicknameComponent = store.getComponent(ref, Nickname.getComponentType());
+        if(nicknameComponent == null) {
+            nicknameComponent = new Nickname(text, color);
+            store.addComponent(ref, Nickname.getComponentType(), nicknameComponent);
+            return nicknameComponent;
+        }
+        if(text != null) nicknameComponent.setText(text);
+        if(color != -1) nicknameComponent.setColor(color);
 
-//    public static Nickname getNickname(Ref<EntityStore> ref) {
-//        Store<EntityStore> store = ref.getStore();
-//        Nickname nickname = store.getComponent(ref, Nickname.getType());
-//        if(nickname == null) nickname = new Nickname();
-//
-//        store.addComponent(ref, Nickname.getType(), nickname);
-//        return nickname;
-//    }
+        store.replaceComponent(ref, Nickname.getComponentType(), nicknameComponent);
+        updateNameplate(ref, store, nicknameComponent.getText());
+        return nicknameComponent;
+    }
 }

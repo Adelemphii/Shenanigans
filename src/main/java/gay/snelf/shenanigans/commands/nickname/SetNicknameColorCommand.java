@@ -12,7 +12,8 @@ import com.hypixel.hytale.server.core.universe.PlayerRef;
 import com.hypixel.hytale.server.core.universe.world.World;
 import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import gay.snelf.shenanigans.Shenanigans;
-import gay.snelf.shenanigans.objects.PlayerConfig;
+import gay.snelf.shenanigans.objects.Nickname;
+import gay.snelf.shenanigans.util.NicknameUtility;
 
 import javax.annotation.Nonnull;
 import java.awt.*;
@@ -30,10 +31,9 @@ public class SetNicknameColorCommand extends AbstractPlayerCommand {
 
     @Override
     protected void execute(@Nonnull CommandContext commandContext, @Nonnull Store<EntityStore> store, @Nonnull Ref<EntityStore> ref, @Nonnull PlayerRef playerRef, @Nonnull World world) {
-        PlayerConfig config = plugin.getPlayerConfig(playerRef.getUuid());
         Integer color = colorArg.get(commandContext);
-        config.setNicknameColor(color);
-        plugin.addPlayerConfig(config);
+        Nickname nickname = NicknameUtility.updateNicknameComponent(ref, store, null, color);
+        plugin.syncNicknameSnapshot(playerRef.getUuid(), nickname);
 
         playerRef.sendMessage(Message.raw("Your nickname color has been set.").color(Color.GREEN));
     }
