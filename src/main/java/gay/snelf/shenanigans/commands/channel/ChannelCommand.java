@@ -13,6 +13,7 @@ import com.hypixel.hytale.server.core.universe.world.storage.EntityStore;
 import gay.snelf.shenanigans.Shenanigans;
 import gay.snelf.shenanigans.objects.Channel;
 import gay.snelf.shenanigans.objects.PlayerConfig;
+import gay.snelf.shenanigans.util.ChannelUtil;
 import gay.snelf.shenanigans.util.SHArgTypes;
 
 import javax.annotation.Nonnull;
@@ -38,6 +39,8 @@ public class ChannelCommand extends AbstractPlayerCommand {
 
         config.setChannel(channel);
         plugin.addPlayerConfig(config);
+
+        ChannelUtil.updateChannel(ref, store, channel);
 
         playerRef.sendMessage(Message.raw("Your chat channel has been set to " + channel.getShortName() + " (" + channel.getRange() + " blocks away)").color(Color.GREEN));
     }

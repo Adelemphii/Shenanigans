@@ -33,8 +33,7 @@ public class Shenanigans extends JavaPlugin {
     private static final HytaleLogger LOGGER = HytaleLogger.forEnclosingClass();
 
     private final Map<UUID, PlayerConfig> playerConfigs = new ConcurrentHashMap<>();
-    public static final ComponentType<EntityStore, Nickname> NICKNAME_COMPONENT_TYPE = EntityModule.get().getEntityStoreRegistry()
-            .registerComponent(Nickname.class, "Nickname", Nickname.CODEC);
+
     private final ConcurrentMap<UUID, NicknameSnapshot> nicknameCache = new ConcurrentHashMap<>();
 
     public Shenanigans(@Nonnull JavaPluginInit init) {
