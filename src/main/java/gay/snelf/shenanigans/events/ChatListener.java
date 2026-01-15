@@ -50,13 +50,14 @@ public class ChatListener {
         World world = Universe.get().getWorld(worldUuid);
         if(world == null) return List.of();
 
+        double rangeSquared = range * range;
         return world.getPlayerRefs().stream()
                 .filter(playerRef -> {
                     Vector3d senderPos = sender.getTransform().getPosition();
                     Vector3d playerPos = playerRef.getTransform().getPosition();
 
                     double distance = senderPos.distanceSquaredTo(playerPos);
-                    return distance <= range;
+                    return distance <= rangeSquared;
                 }).toList();
     }
 }
