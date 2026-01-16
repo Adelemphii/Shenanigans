@@ -41,5 +41,6 @@ public class NicknameCommand extends AbstractPlayerCommand {
         plugin.syncNicknameSnapshot(playerRef.getUuid(), nicknameComponent);
 
         playerRef.sendMessage(Message.raw("Your nickname has been set to " + nickname + ".").color(Color.GREEN));
+
     }
 }

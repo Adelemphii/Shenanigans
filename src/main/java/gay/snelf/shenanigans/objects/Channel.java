@@ -3,7 +3,7 @@ package gay.snelf.shenanigans.objects;
 import java.awt.*;
 
 public enum Channel {
-    GLOBAL(-1, "OOC", Color.GRAY),
+    GLOBAL(-1, "GLOBAL", Color.GRAY),
     WHISPER(2, "WHISPER", Color.BLUE),
     QUIET(8, "QUIET", Color.CYAN),
     NORMAL(24, "NORMAL", Color.GREEN),

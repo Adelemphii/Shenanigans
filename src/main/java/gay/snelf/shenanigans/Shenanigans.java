@@ -39,7 +39,6 @@ public class Shenanigans extends JavaPlugin {
 
     public Shenanigans(@Nonnull JavaPluginInit init) {
         super(init);
-        LOGGER.atInfo().log("Hello from " + this.getName() + " version " + this.getManifest().getVersion().toString());
 
         INSTANCE = this;
     }
@@ -74,9 +73,6 @@ public class Shenanigans extends JavaPlugin {
         nicknameCache.remove(playerUuid);
     }
 
-    /**
-     * MUST be called from the entity's WorldThread.
-     */
     public void syncNicknameSnapshot(@Nonnull UUID playerUuid, @Nonnull Nickname nickname) {
         nicknameCache.put(playerUuid, new NicknameSnapshot(nickname.getText(), nickname.getColor()));
     }
